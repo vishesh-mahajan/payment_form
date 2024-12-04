@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <form id="paymentForm" action="/submit-payment" method="POST" onsubmit="return validateForm()">
+        <h1>Payment Form</h1>
+        <p>Required Fields are followed by <span class="required">*</span></p>
+        
+        <h2>Contact Information</h2>
+        <p>Name: <span class="required">*</span> <input type="text" name="name" id="name" required></p>
+
+        <fieldset>
+            <legend>Gender <span class="required">*</span></legend>
+            <p>
+                Male <input type="radio" name="gender" id="male" value="male" required>
+                Female <input type="radio" name="gender" id="female" value="female" required>
+            </p>
+        </fieldset>
+
+        <p>Address: <textarea name="address" id="address" cols="100" rows="5" required></textarea></p>
+        <p>Email: <span class="required">*</span> <input type="email" name="email" id="email" required></p>
+        <p>Pincode: <span class="required">*</span> <input type="number" name="pincode" id="pincode" required></p>
+
+        <h3>Payment Information</h3>
+        <p>Card Type: <span class="required">*</span>
+            <select name="card_type" id="card_type" required>
+                <option value="">--Select a Card Type--</option>
+                <option value="credit card">Credit Card</option>
+                <option value="debit card">Debit Card</option>
+                <option value="net banking">Net Banking</option>
+            </select>
+        </p>
+        <p>Card Number: <span class="required">*</span> <input type="tel" name="card_number" id="card_number" placeholder="Enter 16-digit number" required pattern="[0-9]{16}"></p>
+        <p>Expiration Date: <span class="required">*</span> <input type="date" name="exp_date" id="exp_date" required></p>
+        <p>CVV: <span class="required">*</span> <input type="password" name="cvv" id="cvv" placeholder="3 or 4 digits" required pattern="[0-9]{3,4}"></p>
+
+        <input type="submit" value="Pay Now">
+    </form>
+
+    <script src="script.js"></script>
+</body>
+</html>
